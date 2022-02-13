@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bcae53da.chunk.css",
+    "main.js": "/static/js/main.246fc346.chunk.js",
+    "main.js.map": "/static/js/main.246fc346.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1c7b145a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1c7b145a.js.map",
+    "static/js/2.6870a0a5.chunk.js": "/static/js/2.6870a0a5.chunk.js",
+    "static/js/2.6870a0a5.chunk.js.map": "/static/js/2.6870a0a5.chunk.js.map",
+    "static/js/3.c4565509.chunk.js": "/static/js/3.c4565509.chunk.js",
+    "static/js/3.c4565509.chunk.js.map": "/static/js/3.c4565509.chunk.js.map",
+    "static/js/4.1202f760.chunk.js": "/static/js/4.1202f760.chunk.js",
+    "static/js/4.1202f760.chunk.js.map": "/static/js/4.1202f760.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.bcae53da.chunk.css.map": "/static/css/main.bcae53da.chunk.css.map",
+    "static/js/2.6870a0a5.chunk.js.LICENSE.txt": "/static/js/2.6870a0a5.chunk.js.LICENSE.txt",
+    "static/media/index.min.css": "/static/media/space.5489fde7.png",
+    "static/media/metamask.09e5f554.svg": "/static/media/metamask.09e5f554.svg",
+    "static/media/walletconnect-hexagon-white.67658ff0.svg": "/static/media/walletconnect-hexagon-white.67658ff0.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1c7b145a.js",
+    "static/js/2.6870a0a5.chunk.js",
+    "static/css/main.bcae53da.chunk.css",
+    "static/js/main.246fc346.chunk.js"
+  ]
+}
