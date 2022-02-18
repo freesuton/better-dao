@@ -6,7 +6,6 @@ import  Web3 from 'web3';
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
 import AnimalWorldCollectionABI from './contracts/AnimalWorldCollection.json';
 import GemotteNFTCollection from './contracts/GemotteNFTCollection.json';
-import Home from "./Home";
 
 
 //popup
