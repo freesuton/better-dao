@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/hao/Desktop/dao-project/better-dao/smart-contract-dev/contracts/DAO.sol": {
-      "lastModificationDate": 1646704369105,
-      "contentHash": "cc50e7974d3092ddb3ba09898baf1dd8",
+      "lastModificationDate": 1646781422882,
+      "contentHash": "78a99907758ef8f841f094e4ba6f201f",
       "sourceName": "contracts/DAO.sol",
       "solcConfig": {
         "version": "0.8.2",
@@ -32,7 +32,7 @@
         "@openzeppelin/contracts/access/Ownable.sol"
       ],
       "versionPragmas": [
-        "^0.8.2"
+        "0.8.2"
       ],
       "artifacts": [
         "DAO"

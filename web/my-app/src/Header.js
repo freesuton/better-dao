@@ -171,7 +171,7 @@ function Header() {
             </div>
 
             <nav className="header__nav" data-clone="nav">
-              <a href="https://www.better-dao.com" className="header__link" style={{color:"white"}}>Home</a>
+              <a href="https://www.maelstrom-dao.com" className="header__link" style={{color:"white"}}>Home</a>
               <a href="https://opensea.io/collection/gemotte" target="_blank" className="header__link">Opensea</a>
 
               {/*<button onClick={(e) => withdraw(e)} style={{color:"white"}}>withdraw</button>*/}
@@ -272,7 +272,7 @@ function Header() {
             <div className="footer-content">
               <div className="footer-content__left">
                 <h2 className="footer-content__title">
-                  <span>BetterDAO</span>
+                  <span>Maelstrom DAO</span>
 
                 </h2>
                 <p className="footer-content__text">
