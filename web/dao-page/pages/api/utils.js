@@ -1,5 +1,6 @@
 import Web3 from 'web3';
 import DAO from '../contracts/DAO.json'
+import Gemotte from '../contracts/GemotteNFTCollection.json'
 
 const v = 123123;
 
@@ -20,21 +21,29 @@ const getWeb3 = async () => {
     console.log(v);
 }
 
-const getContract = async () => {
-    const provider = "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161";
+const getContract = async (contractAddress,provider,abi) => {
     const web3Provider = new Web3.providers.HttpProvider(provider);
     const web3 = new Web3(web3Provider);
     const contract = new web3.eth.Contract(
-        DAO.abi,
-        "0x59bCA427c75Db65c9ACc85e683e7859364B157DA",
+        abi,
+        contractAddress,
     );
+   
     // console.log(await contract.methods.getTestId().call());
     return contract;
     
+}
+
+const listener = () => {
+    window.ethereum.on('networkChanged', function(networkId){
+        console.log('networkChanged',networkId);
+        // setNetwork(window.ethereum.networkVersion);
+      });
+    console.log("web4");
 }
 
 const getWeb4 = () => {
     console.log("web4");
 }
 
-export { getWeb3,getWeb4,getContract };
+export { getWeb3,getWeb4,getContract,listener };

@@ -3,9 +3,31 @@ import {useEffect,useState}  from 'react'
 import Web3 from 'web3';
 import DAO from './contracts/DAO.json'
 import {getWeb3,getContract} from '../pages/api/utils'
+import styles from '../styles/dao.module.css'
+//---------------------------
+
+//Material UI
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
+import { id } from 'ethers/lib/utils';
+import { Description } from '@ethersproject/properties';
+
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
+//---------------------------
+
 
 const Dao = () => {
     const [connected, setConnected] = useState(false);
+    const [tasks, setTasks] = useState([]);
     const [taskId, setTaskId] = useState();
     const [desc, setDesc] = useState();
     const [credit, setCredit] = useState();
@@ -14,31 +36,72 @@ const Dao = () => {
 
     async function mint()  {
 
-        console.log( desc);
+        console.log(tasks[0].id);
     }
 
 
     useEffect(async() => {
 
-        // setValue(await contract.nextTaskId)
-        // console.log(contract.nextTaskId);
-        // console.log(contract.getTestId());
-        // getWeb3();
-        const contract = await getContract();
+
+        const contractAddress = "0x5d645Eee452f4E3Eb669a4f6aB53b57DD85F57A5";
+        const provider = "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161";
+        const contract = await getContract(contractAddress,provider);
         setContract(contract);
 
         const taskInfo = await contract.methods.tasks(0).call();
-        setTaskId(taskInfo.finished);
-        setDesc(taskInfo.desc);
-        setCredit(taskInfo.credit);
-        
+        const newArr =[];
+        for (let i = 0; i < 4; i++) {
+            const task = await contract.methods.tasks(i).call();
+            newArr = [...newArr,task];
+            setTasks(newArr);
+            //  tasks.push(await contract.methods.tasks(i).call());  
+        }
+        for (let i = 0; i < 2; i++) {
+            // console.log(tasks);
+            console.log(tasks[i]);
+            
+        }
 
       }, []);
 
     return (
-        <div>
-            <section className="intro">
-                <div className="hero">
+        <div style={{marginBottom:"80px"}}>
+            <section className="intro" >
+            <Container maxWidth="md">
+                <div className={styles.dao__title}><h2>Tasks</h2></div>
+                <Box sx={{ width: '100%' }}>
+                    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                        {tasks.map(task=>(
+                            <Grid item xs={6} >
+                                <Item className={styles.dao__grid}>
+                                    <p>id: {task.id}</p>
+                                    <p>Credit: {task.credit}</p>
+                                    <p>Description:{desc}</p>
+                                    <div onClick={(e) => mint(e)} className="header__btn-wrapper" style={{marginTop:"6%"}}>
+                                        <span className="header__btn-text">Take Task</span>
+                                        <img src="assets/images/glass.png" alt="glass" className="header__btn-glass"/>
+                                    </div>
+                                </Item>
+                            </Grid>
+                        ))}
+                            {/* <Grid item xs={6} >
+                                <Item className={styles.dao__grid}>
+                                    <p>id: {taskId}</p>
+                                    <p>Credit: {credit}</p>
+                                    <p>Description:{desc}</p>
+                                    <div onClick={(e) => mint(e)} className="header__btn-wrapper" style={{marginTop:"6%"}}>
+                                        <span className="header__btn-text">Take Task</span>
+                                        <img src="assets/images/glass.png" alt="glass" className="header__btn-glass"/>
+                                    </div>
+                                </Item>
+                            </Grid> */}
+                    </Grid>
+                </Box>
+            </Container>
+ 
+                
+                {/* <div className="hero">
+                    
                     <div className="hero__content" style={{background:"rgb(0,0,0,0.9)", padding:"2%", borderRadius:"20px"}}>
                     <div className="hero__title-wrapper" >
                         <p className="hero__subtitle">Please Connect Wallet</p>
@@ -52,9 +115,9 @@ const Dao = () => {
                     </div>
                     </div>
                     
-                </div>
+                </div> */}
 
-        </section>
+            </section>
         </div>
     );
 }

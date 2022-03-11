@@ -3,10 +3,12 @@ import {useEffect,useState}  from 'react'
 import {getWeb3,getWeb4} from '../pages/api/utils'
 import Image from 'next/image'
 import Web3 from 'web3';
+import Link from 'next/link'
+
 
 const Navbar = () => {
     const [connected, setConnected] = useState(false);
-
+    const [network, setNetwork] = useState(99);
     const [web3, setWeb3] = useState(undefined);
     const [contract, setContract] = useState(undefined);
     const [accounts, setAccounts] = useState(undefined);
@@ -39,8 +41,12 @@ const Navbar = () => {
                 <div className="header__logo" data-clone="logo">
                 </div>
                 <nav className="header__nav" data-clone="nav">
+                    
                     <a href="https://www.better-dao.com" className="header__link" style={{color:"white"}}>Home</a>
-                    <a href="https://www.better-dao.com" className="header__link" style={{color:"white"}}>Govern</a>
+                    <Link href="/nft" ><a className="header__link" style={{color:"white"}}>NFT</a></Link>
+                    <Link href="/dao"><a  className="header__link" style={{color:"white"}}>Govern</a></Link>
+                    {/* <Link href="/nft" ><a>dsd</a></Link> */}
+                    {/* <a href="https://www.better-dao.com" className="header__link" style={{color:"white"}}>Govern</a> */}
                     <a href="https://opensea.io/collection/gemotte" target="_blank" className="header__link">Opensea</a>
                 </nav>
                 <button  href="#whitelist" className="header__btn" data-clone="mint-btn">

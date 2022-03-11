@@ -1,0 +1,30 @@
+.dao__grid {
+    /* position: relative; */
+    z-index: 3;
+    margin-top: 20px;
+    max-width: 584px;
+    text-align: left;
+    color: #FFFFFF;
+    font-family: "Gilroy", sans-serif;
+    font-size: 14.7615px;
+    line-height: 2;
+    text-transform: capitalize;
+    background-color: black;
+    padding: 20px;
+    border-radius:10px;
+    overflow: hidden;
+  }
+  @media (max-width: 768px) {
+    .dao__grid {
+      margin-top: 17px;
+      font-size: 13.3px;
+      line-height: 0.9;
+      width: 77.7%;
+    }
+  }
+  
+  .dao__title {
+    color:white;
+    font-family: "Gilroy", sans-serif;
+    text-transform: capitalize;
+  }
