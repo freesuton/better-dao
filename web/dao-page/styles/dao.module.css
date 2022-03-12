@@ -16,10 +16,10 @@
   }
   @media (max-width: 768px) {
     .dao__grid {
-      margin-top: 17px;
+      margin-top: 10px;
       font-size: 13.3px;
       line-height: 0.9;
-      width: 77.7%;
+      /* width: 77.7%; */
     }
   }
   

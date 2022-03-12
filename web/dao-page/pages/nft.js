@@ -1,44 +1,45 @@
-import {useEffect,useState}  from 'react'
+import {useEffect,useState,useContext}  from 'react'
+import {CountContext} from '../comps/Layout'
 import {ethers} from 'ethers'
 import {getWeb3,getContract,listener} from '../pages/api/utils'
 import GemotteNFTCollection from './contracts/GemotteNFTCollection.json'
-
+import  Web3 from 'web3';
 
 const Nft = () => {
-    const [connected, setConnected] = useState(false);
+    
+    const { connected, networkId,accounts } = useContext(CountContext);
     const [tokenCount, setTokenCount] = useState(0);
-    const [network, setNetwork] = useState();
     const [contract, setContract] = useState();
     const requiredNetwork = 1;
+    
 
     useEffect(async() => {
 
         const contractAddress = "0x3a56590664fEF8f483063F3d714B88DafEe0Bbc7";
         const provider = "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161";
-        const contract = await getContract(contractAddress,provider,GemotteNFTCollection.abi);
-        setContract(contract);
-        setTokenCount(await contract.methods.tokenCount.call().call());
-        console.log(tokenCount);
-        setNetwork(window.ethereum.networkVersion);
-        listener();
-                       // detect Network account change
+        console.log(connected);
+        if(connected && window.ethereum){
+            const web3 = await getWeb3();
+            const contract = new web3.eth.Contract(GemotteNFTCollection.abi,contractAddress);
+            setContract(contract);
+            setTokenCount(await contract.methods.tokenCount.call().call());
+           
+        }else{
+            const contract = await getContract(contractAddress,provider,GemotteNFTCollection.abi);
+            setContract(contract);
+            setTokenCount(await contract.methods.tokenCount.call().call());
+        }
+        
 
+        
+        console.log(accounts);
     }, []);
 
-    useEffect(async() => {
-
-
-          
-
-
-    }, []);
 
     async function mint(e){
         e.preventDefault();
-    //    await contract.methods.mint().send({from: accounts[0], value: ethers.utils.parseEther("0.05")});
-       // const count = await contract.methods.tokenCount.call().call();
-       console.log("mint");
-       console.log(network);
+       await contract.methods.withdraw("0x846684d5db5A149bAb306FeeE123a268a9E8A7E4",ethers.utils.parseEther("0.05")).send({from: accounts[0]});
+       console.log(accounts[0]);
      }
 
 
@@ -59,19 +60,19 @@ const Nft = () => {
                 {/* {connected ?
                     <h2 className="hero__title">{tokenCount}/5000</h2> :
                     <p className="hero__subtitle">Please Connect Wallet</p>} */}
-
               </div>
-              <p className="hero__subtitle">
-                Mint Price: 0.05 ETH
-              </p>
-              {network == requiredNetwork ?
+              <p className="hero__subtitle"> Mint Price: 0.05 ETH </p>
+              {/* <p className="hero__subtitle">test:{connected}</p>
+              <p className="hero__subtitle">account: {accounts}</p> */}
+              {/* <p className="hero__subtitle"> network:{networkId}</p> */}
+              {networkId == requiredNetwork && connected == true?
                 <div onClick={(e) => mint(e)} className="header__btn-wrapper" style={{marginTop:"6%"}}>
                     <span className="header__btn-text">Mint</span> 
                     <img src="assets/images/glass.png" alt="glass" className="header__btn-glass"/>
                 </div>
               :              
                 <div  className="header__btn-wrapper" style={{marginTop:"6%"}}>
-                    <span className="header__btn-text">#!Wrong Network</span>
+                    <span className="header__btn-text">#!Connect ETH</span>
                     <img src="assets/images/glass.png" alt="glass" className="header__btn-glass"/>
                 </div>
               }

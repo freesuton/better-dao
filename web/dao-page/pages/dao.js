@@ -1,9 +1,11 @@
-import {useEffect,useState}  from 'react'
+import {useEffect,useState,useContext}  from 'react'
+import {CountContext} from '../comps/Layout'
 // import {ethers} from 'ethers'
 import Web3 from 'web3';
 import DAO from './contracts/DAO.json'
 import {getWeb3,getContract} from '../pages/api/utils'
 import styles from '../styles/dao.module.css'
+
 //---------------------------
 
 //Material UI
@@ -19,13 +21,14 @@ const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
     padding: theme.spacing(1),
-    textAlign: 'center',
+    // textAlign: 'center',
     color: theme.palette.text.secondary,
   }));
 //---------------------------
 
 
 const Dao = () => {
+    const config = useContext(CountContext); // 得到每次更新的config
     const [connected, setConnected] = useState(false);
     const [tasks, setTasks] = useState([]);
     const [taskId, setTaskId] = useState();
@@ -45,7 +48,7 @@ const Dao = () => {
 
         const contractAddress = "0x5d645Eee452f4E3Eb669a4f6aB53b57DD85F57A5";
         const provider = "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161";
-        const contract = await getContract(contractAddress,provider);
+        const contract = await getContract(contractAddress,provider,DAO.abi);
         setContract(contract);
 
         const taskInfo = await contract.methods.tasks(0).call();
@@ -68,15 +71,16 @@ const Dao = () => {
         <div style={{marginBottom:"80px"}}>
             <section className="intro" >
             <Container maxWidth="md">
-                <div className={styles.dao__title}><h2>Tasks</h2></div>
+                <div className={styles.dao__title}><h2>Tasks{config.lang}</h2></div>
                 <Box sx={{ width: '100%' }}>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         {tasks.map(task=>(
-                            <Grid item xs={6} >
+                            <Grid item xs={12} md={6} >
                                 <Item className={styles.dao__grid}>
                                     <p>id: {task.id}</p>
                                     <p>Credit: {task.credit}</p>
                                     <p>Description:{desc}</p>
+                                    <button>Take</button>
                                     <div onClick={(e) => mint(e)} className="header__btn-wrapper" style={{marginTop:"6%"}}>
                                         <span className="header__btn-text">Take Task</span>
                                         <img src="assets/images/glass.png" alt="glass" className="header__btn-glass"/>
