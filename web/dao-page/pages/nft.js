@@ -72,7 +72,7 @@ const Nft = () => {
                 </div>
               :              
                 <div  className="header__btn-wrapper" style={{marginTop:"6%"}}>
-                    <span className="header__btn-text">#!Connect ETH</span>
+                    <span className="header__btn-text">#!Connect to ETH</span>
                     <img src="assets/images/glass.png" alt="glass" className="header__btn-glass"/>
                 </div>
               }

@@ -5,15 +5,15 @@ const Footer = () => {
             <div className="footer-content">
               <div className="footer-content__left">
                 <h2 className="footer-content__title">
-                  <span>BetterDAO</span>
+                  <span>MaelstromDAO</span>
 
                 </h2>
                 <p className="footer-content__text">
-                  Make The World Better.
+                  Metaverse Builder
                 </p>
                 <div className="socials">
                   <div className="socials__inner">
-                    <a href="https://twitter.com/BetterDAO" className="socials__link">
+                    <a href="https://twitter.com/MaelstromDAO" className="socials__link">
                       <img src="assets/images/socials/twitter.svg" alt="twt"/>
                     </a>
 
@@ -23,9 +23,9 @@ const Footer = () => {
               <div className="footer-content__right">
                 <div className="footer-content__wrapper">
                   <nav className="footer-content__nav">
-                    <a className="footer-content__nav-link" href="index.html">Home</a>
-                    {/*<a className="footer-content__nav-link" href="#rarity">Rarity</a>*/}
-                    {/*<a className="footer-content__nav-link" href="#benefits">Benefits</a>*/}
+                    <a className="footer-content__nav-link" href="https://www.maelstrom-dao.com">Home</a>
+                    {/* <a className="footer-content__nav-link" href="#rarity">Rarity</a> */}
+                    {/* <a className="footer-content__nav-link" href="#benefits">Benefits</a> */}
                   </nav>
                   <nav className="footer-content__nav">
 

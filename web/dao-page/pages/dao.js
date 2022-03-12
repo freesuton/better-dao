@@ -55,7 +55,7 @@ const Dao = () => {
         const newArr =[];
         for (let i = 0; i < 4; i++) {
             const task = await contract.methods.tasks(i).call();
-            newArr = [...newArr,task];
+            newArr = [task, ...newArr];
             setTasks(newArr);
             //  tasks.push(await contract.methods.tasks(i).call());  
         }
@@ -71,15 +71,15 @@ const Dao = () => {
         <div style={{marginBottom:"80px"}}>
             <section className="intro" >
             <Container maxWidth="md">
-                <div className={styles.dao__title}><h2>Tasks{config.lang}</h2></div>
+                <div className={styles.dao__title}><h2>Tasks{config.lang}  (Rinkeby Testnet)</h2></div>
                 <Box sx={{ width: '100%' }}>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         {tasks.map(task=>(
-                            <Grid item xs={12} md={6} >
+                            <Grid item xs={12} md={6} key={task.id}>
                                 <Item className={styles.dao__grid}>
                                     <p>id: {task.id}</p>
                                     <p>Credit: {task.credit}</p>
-                                    <p>Description:{desc}</p>
+                                    <p>Description: {task.desc}</p>
                                     <button>Take</button>
                                     <div onClick={(e) => mint(e)} className="header__btn-wrapper" style={{marginTop:"6%"}}>
                                         <span className="header__btn-text">Take Task</span>

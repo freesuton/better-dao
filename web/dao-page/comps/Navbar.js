@@ -64,11 +64,9 @@ const Navbar = () => {
                 </div>
                 <nav className="header__nav" data-clone="nav">
          
-                    <a href="https://www.better-dao.com" className="header__link" style={{color:"white"}}>Home</a>
+                    <a href="https://www.maelstrom-dao.com" className="header__link" style={{color:"white"}}>Home</a>
                     <Link href="/nft" ><a className="header__link" style={{color:"white"}}>NFT</a></Link>
-                    <Link href="/dao"><a  className="header__link" style={{color:"white"}}>Govern</a></Link>
-                    {/* <Link href="/nft" ><a>dsd</a></Link> */}
-                    {/* <a href="https://www.better-dao.com" className="header__link" style={{color:"white"}}>Govern</a> */}
+                    <Link href="/dao"><a  className="header__link" style={{color:"white"}}>DAO</a></Link>
                     <a href="https://opensea.io/collection/gemotte" target="_blank" className="header__link">Opensea</a>
                 </nav>
                 <button  href="#whitelist" className="header__btn" data-clone="mint-btn">
@@ -105,8 +103,15 @@ const Navbar = () => {
                 </header>
                 <div class="menu__body">
                     <h3 class="menu__title">Menu</h3>
-                    <div data-insert="nav"></div>
+                    <div data-insert="nav">
+                    
+                    </div>
+
                 </div>
+                <div>
+                    
+                </div>
+    
                 <footer class="menu__footer" data-clone="socials">
                     <h3 class="menu__title">Get in touch</h3>
                     <div class="socials-menu">
