@@ -90,19 +90,19 @@ const Navbar = () => {
                         <></>
                     }
                 </button>
-                <button class="burgermenu" id="burgermenu"></button>
+                <button className="burgermenu" id="burgermenu"></button>
    
                 </div>
             </header>
 
-            <div class="menu" id="menu">
-                <header class="menu__header">
+            <div className="menu" id="menu">
+                <header className="menu__header">
                     <div data-insert="logo"></div>
                     <div data-insert="mint-btn"></div>
-                    <button class="menu__closed" id="close-menu"></button>
+                    <button className="menu__closed" id="close-menu"></button>
                 </header>
-                <div class="menu__body">
-                    <h3 class="menu__title">Menu</h3>
+                <div className="menu__body">
+                    <h3 className="menu__title">Menu</h3>
                     <div data-insert="nav">
                     
                     </div>
@@ -112,10 +112,10 @@ const Navbar = () => {
                     
                 </div>
     
-                <footer class="menu__footer" data-clone="socials">
-                    <h3 class="menu__title">Get in touch</h3>
-                    <div class="socials-menu">
-                        <a href="https://twitter.com/MaelstromDAO" class="socials-menu__link twt">
+                <footer className="menu__footer" data-clone="socials">
+                    <h3 className="menu__title">Get in touch</h3>
+                    <div className="socials-menu">
+                        <a href="https://twitter.com/MaelstromDAO" className="socials-menu__link twt">
                             <img src="assets/images/socials/twitter-menu.png" alt="twitter"/>
                         </a>
 

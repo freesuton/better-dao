@@ -43,27 +43,30 @@ const Dao = () => {
     }
 
 
-    useEffect(async() => {
+    useEffect(() => {
 
-
-        const contractAddress = "0x5d645Eee452f4E3Eb669a4f6aB53b57DD85F57A5";
-        const provider = "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161";
-        const contract = await getContract(contractAddress,provider,DAO.abi);
-        setContract(contract);
-
-        const taskInfo = await contract.methods.tasks(0).call();
-        const newArr =[];
-        for (let i = 0; i < 4; i++) {
-            const task = await contract.methods.tasks(i).call();
-            newArr = [task, ...newArr];
-            setTasks(newArr);
-            //  tasks.push(await contract.methods.tasks(i).call());  
+        async function initContract() {
+            const contractAddress = "0x5d645Eee452f4E3Eb669a4f6aB53b57DD85F57A5";
+            const provider = "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161";
+            const contract = await getContract(contractAddress,provider,DAO.abi);
+            setContract(contract);
+    
+            const taskInfo = await contract.methods.tasks(0).call();
+            const newArr =[];
+            for (let i = 0; i < 4; i++) {
+                const task = await contract.methods.tasks(i).call();
+                newArr = [task, ...newArr];
+                setTasks(newArr);
+                //  tasks.push(await contract.methods.tasks(i).call());  
+            }
+            for (let i = 0; i < 2; i++) {
+                // console.log(tasks);
+                console.log(tasks[i]);
+                
+            }
         }
-        for (let i = 0; i < 2; i++) {
-            // console.log(tasks);
-            console.log(tasks[i]);
-            
-        }
+        initContract();
+
 
       }, []);
 

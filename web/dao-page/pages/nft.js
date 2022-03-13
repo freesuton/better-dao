@@ -18,17 +18,17 @@ const Nft = () => {
         const contractAddress = "0x3a56590664fEF8f483063F3d714B88DafEe0Bbc7";
         const provider = "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161";
         console.log(connected);
-        if(connected && window.ethereum){
+        // if(connected && window.ethereum){
             const web3 = await getWeb3();
             const contract = new web3.eth.Contract(GemotteNFTCollection.abi,contractAddress);
             setContract(contract);
             setTokenCount(await contract.methods.tokenCount.call().call());
            
-        }else{
-            const contract = await getContract(contractAddress,provider,GemotteNFTCollection.abi);
-            setContract(contract);
-            setTokenCount(await contract.methods.tokenCount.call().call());
-        }
+        // }else{
+            // const contract = await getContract(contractAddress,provider,GemotteNFTCollection.abi);
+            // setContract(contract);
+            // setTokenCount(await contract.methods.tokenCount.call().call());
+        // }
         
 
         
@@ -56,10 +56,10 @@ const Nft = () => {
           <div className="hero">
             <div className="hero__content" style={{background:"rgb(0,0,0,0.9)", padding:"2%", borderRadius:"20px"}}>
               <div className="hero__title-wrapper" >
-              <h2 className="hero__title">{tokenCount}/5000</h2> 
-                {/* {connected ?
+              {/* <h2 className="hero__title">{tokenCount}/5000</h2>  */}
+                {connected ?
                     <h2 className="hero__title">{tokenCount}/5000</h2> :
-                    <p className="hero__subtitle">Please Connect Wallet</p>} */}
+                    <p className="hero__subtitle">Please Connect Wallet</p>}
               </div>
               <p className="hero__subtitle"> Mint Price: 0.05 ETH </p>
               {/* <p className="hero__subtitle">test:{connected}</p>

@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
         if(window.ethereum){
             if(!accounts){
                 setConnected(false);
-                init();
+                
             }else{
                 if (accounts.length === 0){
                     // console.log("wallet length = 0");
@@ -26,11 +26,11 @@ const Layout = ({ children }) => {
                     setAccounts(accounts);
                 });
 
-                     window.ethereum.on('networkChanged', function(networkId){
-             setNetworkId( window.ethereum.networkVersion);
+                window.ethereum.on('networkChanged', function(networkId){
+                    setNetworkId( window.ethereum.networkVersion);
          });
         }
-
+        init();
         console.log(accounts);
         
 
@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
     }
 
        
-      }, [accounts]);
+      }, []);
     //   useEffect(async() => {
     //     init();
 
