@@ -21,8 +21,8 @@ const Nft = () => {
             const web3 = new Web3(window.ethereum);
             const contract = new web3.eth.Contract(GemotteNFTCollection.abi,contractAddress);
             setContract(contract);
+            setTokenCount(await contract.methods.tokenCount.call().call());
             console.log("detect metamask");
-           
         }else{
             const contract = await getContract(contractAddress,provider,GemotteNFTCollection.abi);
             setContract(contract);

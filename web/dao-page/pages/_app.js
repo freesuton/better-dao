@@ -2,14 +2,17 @@
 import Layout from '../comps/Layout'
 import '../styles/mainStyle.css'
 import {useEffect,useState,createContext}  from 'react'
+import { NextUIProvider } from '@nextui-org/react';
 
 function MyApp({ Component, pageProps }) {
   const x= "13fdsfds";
 
   return (
-    <Layout>
-      <Component {...pageProps}  />
-    </Layout>
+    <NextUIProvider>
+      <Layout>
+        <Component {...pageProps}  />
+      </Layout>
+    </NextUIProvider>
   )
 }
 

@@ -8,23 +8,15 @@ import styles from '../styles/dao.module.css'
 
 //---------------------------
 
-//Material UI
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
-import { id } from 'ethers/lib/utils';
-import { Description } from '@ethersproject/properties';
+// Next UI
+import { Button } from '@nextui-org/react';
+import { Grid,Card, Text } from '@nextui-org/react';
+import { Container, Row, Col } from '@nextui-org/react';
+//
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    // textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
-//---------------------------
+
+
+
 
 
 const Dao = () => {
@@ -68,13 +60,46 @@ const Dao = () => {
         initContract();
 
 
-      }, []);
+    }, []);
+
+    
+
+    
 
     return (
         <div style={{marginBottom:"80px"}}>
             <section className="intro" >
-            <Container maxWidth="md">
+            <Container>
                 <div className={styles.dao__title}><h2>Tasks{config.lang}  (Rinkeby Testnet)</h2></div>
+                <Grid.Container gap={2} justify="center">
+                    {tasks.map(task=>(
+                        <>
+                            <Grid xs={12} sm={6} key={task.id}>
+                                <Card color="" css={{ h: '$60' ,background:"#000"}}>
+                                    <Text h6 size={20} color="white" css={{ mt: 0 }}>
+                                        ID:     { task.id}
+                                    </Text>
+                                    <Text h6 size={20} color="white" css={{ mt: 0 }}>
+                                    Credit: {task.credit}
+                                    </Text>
+                                    <Text h6 size={15} color="white" css={{ mt: 0 }}>
+                                    Description: {task.desc}
+                                    </Text>
+                                    <button>Take</button>
+                                    <div onClick={(e) => mint(e)} className="header__btn-wrapper" style={{marginTop:"6%"}}>
+                                        <span className="header__btn-text">Take Task</span>
+                                        <img src="assets/images/glass.png" alt="glass" className="header__btn-glass"/>
+                                    </div>
+                                </Card>
+                                
+                            </Grid>
+
+                        </>
+                    ))}
+                </Grid.Container>
+            </Container>
+            {/* <Container maxWidth="md"> */}
+                {/* <div className={styles.dao__title}><h2>Tasks{config.lang}  (Rinkeby Testnet)</h2></div>
                 <Box sx={{ width: '100%' }}>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         {tasks.map(task=>(
@@ -90,8 +115,8 @@ const Dao = () => {
                                     </div>
                                 </Item>
                             </Grid>
-                        ))}
-                            {/* <Grid item xs={6} >
+                        ))} */}
+                             {/* <Grid item xs={6} >
                                 <Item className={styles.dao__grid}>
                                     <p>id: {taskId}</p>
                                     <p>Credit: {credit}</p>
@@ -101,11 +126,11 @@ const Dao = () => {
                                         <img src="assets/images/glass.png" alt="glass" className="header__btn-glass"/>
                                     </div>
                                 </Item>
-                            </Grid> */}
-                    </Grid>
+                            </Grid>  */}
+                    {/* </Grid>
                 </Box>
-            </Container>
- 
+            </Container> */}
+  
                 
                 {/* <div className="hero">
                     
