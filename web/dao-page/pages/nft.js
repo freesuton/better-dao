@@ -35,7 +35,7 @@ const Nft = () => {
 
     async function mint(e){
         e.preventDefault();
-       await contract.methods.withdraw("0x846684d5db5A149bAb306FeeE123a268a9E8A7E4",ethers.utils.parseEther("0.05")).send({from: accounts[0]});
+       await contract.methods.mint().send({from: accounts[0], value: ethers.utils.parseEther("0.05")});
        console.log(accounts[0]);
      }
 

@@ -1,5 +1,5 @@
 import {useEffect,useState}  from 'react'
-import Head from 'next/head'
+
 import Image from 'next/image'
 import Footer from '../comps/Footer'
 import Navbar from '../comps/Navbar'
@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <>
-      <Head><title>Maelstrom DAO</title></Head>
+
       <Nft />
       
     </>
