@@ -1,0 +1,42 @@
+  @font-face {
+    font-family: "Mazzard";
+    font-weight: 400;
+    font-style: normal;
+    src: url(../fonts/MazzardH-Regular.woff2) format("woff2"), url(../fonts/MazzardH-Regular.woff) format("woff"), url(../fonts/MazzardH-Regular.ttf) format("truetype"), url(../fonts/MazzardH-Regular.eot) format("embedded-opentype");
+  }
+  @font-face {
+    font-family: "Mazzard";
+    font-weight: 500;
+    font-style: normal;
+    src: url(../fonts/MazzardH-Medium.woff2) format("woff2"), url(../fonts/MazzardH-Medium.woff) format("woff"), url(../fonts/MazzardH-Medium.ttf) format("truetype"), url(../fonts/MazzardH-Medium.eot) format("embedded-opentype");
+  }
+  @font-face {
+    font-family: "Mazzard";
+    font-weight: 600;
+    font-style: normal;
+    src: url(../fonts/MazzardH-SemiBold.woff2) format("woff2"), url(../fonts/MazzardH-SemiBold.woff) format("woff"), url(../fonts/MazzardH-SemiBold.ttf) format("truetype"), url(../fonts/MazzardH-SemiBold.eot) format("embedded-opentype");
+  }
+  @font-face {
+    font-family: "Mazzard";
+    font-weight: 700;
+    font-style: normal;
+    src: url(../fonts/MazzardH-Bold.woff2) format("woff2"), url(../fonts/MazzardH-Bold.woff) format("woff"), url(../fonts/MazzardH-Bold.ttf) format("truetype"), url(../fonts/MazzardH-Bold.eot) format("embedded-opentype");
+  }
+  @font-face {
+    font-family: "Prototype";
+    font-weight: 400;
+    font-style: normal;
+    src: url(../fonts/Prototype.woff2) format("woff2"), url(../fonts/Prototype.woff) format("woff"), url(../fonts/Prototype.ttf) format("truetype"), url(../fonts/Prototype.eot) format("embedded-opentype");
+  }
+  @font-face {
+    font-family: "ComicSans";
+    font-weight: 400;
+    font-style: normal;
+    src: url(../fonts/Comic-Sans-MS.woff2) format("woff2"), url(../fonts/Comic-Sans-MS.woff) format("woff"), url(../fonts/Comic-Sans-MS.ttf) format("truetype"), url(../fonts/Comic-Sans-MS.eot) format("embedded-opentype");
+  }
+  @font-face {
+    font-family: "KronaOne";
+    font-weight: 400;
+    font-style: normal;
+    src: url(../fonts/KronaOne-Regular.woff2) format("woff2"), url(../fonts/KronaOne-Regular.woff) format("woff"), url(../fonts/KronaOne-Regular.ttf) format("truetype"), url(../fonts/KronaOne-Regular.eot) format("embedded-opentype");
+  }

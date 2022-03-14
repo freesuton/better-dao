@@ -13,7 +13,9 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head>{CssBaseline.flush()}</Head>
+        <Head>{CssBaseline.flush()}
+          <link href="/assets/fonts/fonts_style.css" rel="stylesheet"/>
+        </Head>
         <body>
           <Main />
           <NextScript />
