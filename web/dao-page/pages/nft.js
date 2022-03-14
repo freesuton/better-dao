@@ -59,9 +59,9 @@ const Nft = () => {
                     <p className="hero__subtitle">Please Connect Wallet</p>}
               </div>
               <p className="hero__subtitle"> Mint Price: 0.05 ETH </p>
-              <p className="hero__subtitle">test:{connected}</p>
+              {/* <p className="hero__subtitle">test:{connected}</p>
               <p className="hero__subtitle">account: {accounts}</p> 
-               <p className="hero__subtitle"> network:{networkId}</p>
+               <p className="hero__subtitle"> network:{networkId}</p> */}
               {networkId == requiredNetwork && connected == true?
                 <div onClick={(e) => mint(e)} className="header__btn-wrapper" style={{marginTop:"6%"}}>
                     <span className="header__btn-text">Mint</span> 

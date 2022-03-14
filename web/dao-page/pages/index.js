@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <>
-     
+      <Head><title>Maelstrom DAO</title></Head>
       <Nft />
       
     </>

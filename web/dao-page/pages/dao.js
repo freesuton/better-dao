@@ -85,7 +85,6 @@ const Dao = () => {
                                     <Text h6 size={15} color="white" css={{ mt: 0 }}>
                                     Description: {task.desc}
                                     </Text>
-                                    <button>Take</button>
                                     <div onClick={(e) => mint(e)} className="header__btn-wrapper" style={{marginTop:"6%"}}>
                                         <span className="header__btn-text">Take Task</span>
                                         <img src="assets/images/glass.png" alt="glass" className="header__btn-glass"/>
