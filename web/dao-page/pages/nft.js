@@ -29,7 +29,7 @@ const Nft = () => {
             setTokenCount(await contract.methods.tokenCount.call().call());
         }
         
-        console.log(accounts);
+        // console.log(accounts);
     }, [connected]);
 
 
